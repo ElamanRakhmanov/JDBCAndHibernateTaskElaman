@@ -1,5 +1,9 @@
 package peaksoft.util;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 public class Util {
     public static final String url = "jdbc:postgresql://localhost:5432/jdbc-practice";
     public static final String username = "postgres";
@@ -9,7 +13,7 @@ public class Util {
         Connection connect = null;
         try{
             connect = DriverManager.getConnection(url, username, password);
-            System.out.println("Connected to db successfully");
+            System.out.println("Connected to database successfully");
         }catch (SQLException e){
             System.out.println(e.getMessage());
         }

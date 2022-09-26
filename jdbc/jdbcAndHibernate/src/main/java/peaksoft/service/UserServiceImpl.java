@@ -1,31 +1,39 @@
 package peaksoft.service;
 
+import peaksoft.dao.UserDao;
+import peaksoft.dao.UserDaoJdbcImpl;
 import peaksoft.model.User;
+import peaksoft.util.Util;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
+    private final UserDaoJdbcImpl userDao = new UserDaoJdbcImpl();
 
     public void createUsersTable() {
-
+        userDao.createUsersTable();
     }
 
-    public void dropUsersTable() {
-
+    public void dropUsersTable(){
+        userDao.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) {
-
+        userDao.saveUser("name", "lastName", age);
     }
 
     public void removeUserById(long id) {
-
+        userDao.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        return null;
+        return userDao.getAllUsers();
     }
 
     public void cleanUsersTable() {
+        userDao.cleanUsersTable();
     }
 }
